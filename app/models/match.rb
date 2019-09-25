@@ -6,6 +6,6 @@ class Match < ApplicationRecord
   validates :date, presence: true
   validates :team1, presence: true, uniqueness: { scope: :date }
   validates :team2, presence: true
-  validates :championship, presence: true, uniqueness: true
+  validates :championship, presence: true
   validates :foot_api_fixture_id, presence: true, uniqueness: true
 end

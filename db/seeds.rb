@@ -1,18 +1,18 @@
-if BetSite.count == 0
+if PronoSite.count == 0
   p "Création des sites de références"
-  site1 = BetSite.new
+  site1 = PronoSite.new
   site1.name = "Pronostics Gagnants.fr"
   site1.url = "http://www.pronostics-gagnants.fr"
   site1.logo = "http://www.pronostics-gagnants.fr/wp-content/uploads/2018/03/logo-PG-1.png"
   site1.save!
 
-  site2 = BetSite.new
+  site2 = PronoSite.new
   site2.name = "SportyTrader - Win together"
   site2.url = "https://www.sportytrader.com"
   site2.logo = "https://www.sportytrader.com/dist/img/st_orange.png"
   site2.save!
 
-  site3 = BetSite.new
+  site3 = PronoSite.new
   site3.name = "API-FOOTBALL"
   site3.url = "https://rapidapi.com/api-sports/api/api-football"
   site3.logo = "https://s3.amazonaws.com/mashape-production-logos/apis/5b3e61a1e4b0a5b0626e8bec_medium"
