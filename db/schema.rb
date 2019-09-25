@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_25_131003) do
+ActiveRecord::Schema.define(version: 2019_09_25_215630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,19 @@ ActiveRecord::Schema.define(version: 2019_09_25_131003) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pronostics", force: :cascade do |t|
+    t.date "date"
+    t.bigint "prono_site_id"
+    t.bigint "match_id"
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "advice"
+    t.index ["match_id"], name: "index_pronostics_on_match_id"
+    t.index ["prono_site_id"], name: "index_pronostics_on_prono_site_id"
+    t.index ["team_id"], name: "index_pronostics_on_team_id"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.string "foot_api_team_id"
@@ -61,4 +74,7 @@ ActiveRecord::Schema.define(version: 2019_09_25_131003) do
   end
 
   add_foreign_key "matches", "championships"
+  add_foreign_key "pronostics", "matches"
+  add_foreign_key "pronostics", "prono_sites"
+  add_foreign_key "pronostics", "teams"
 end
