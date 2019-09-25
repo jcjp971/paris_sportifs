@@ -10,9 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_09_25_131003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "championships", force: :cascade do |t|
+    t.string "name"
+    t.string "foot_api_league_key"
+    t.string "country_code"
+    t.string "url1"
+    t.string "url2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.date "date"
+    t.bigint "team1_id"
+    t.bigint "team2_id"
+    t.bigint "championship_id"
+    t.string "result"
+    t.string "foot_api_fixture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["championship_id"], name: "index_matches_on_championship_id"
+    t.index ["team1_id"], name: "index_matches_on_team1_id"
+    t.index ["team2_id"], name: "index_matches_on_team2_id"
+  end
+
+  create_table "prono_sites", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.string "logo"
+    t.integer "tx_succes"
+    t.integer "tx_accuracy"
+    t.integer "tx_risk"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.string "foot_api_team_id"
+    t.string "logo"
+    t.string "name2"
+    t.string "name3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "matches", "championships"
 end
