@@ -1,0 +1,8 @@
+<h1>Cyber Empire - les matchs</h1>
+
+
+<ul>
+  <% @matches.each do |match| %>
+    <li> id <%= match.id %> | apiID <%= match.foot_api_fixture_id %> | <%= match.date %>  | <%= match.team1.name %>  vs  <%= match.team2.name %> |  <%= match.championship.name %> | <%= match.result %> </li>
+  <% end %>
+</ul>

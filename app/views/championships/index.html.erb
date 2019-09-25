@@ -1,0 +1,8 @@
+<h1>Cyber Empire - les championships</h1>
+
+
+<ul>
+  <% @championships.each do |championship| %>
+    <li> id <%= championship.id %> | apiID <%= championship.foot_api_league_key %> | <%= championship.name %> </li>
+  <% end %>
+</ul>

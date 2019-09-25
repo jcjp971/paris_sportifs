@@ -1,0 +1,8 @@
+<h1>Cyber Empire - les teams</h1>
+
+
+<ul>
+  <% @teams.each do |team| %>
+    <li> id <%= team.id %> | apiID <%= team.foot_api_team_id %> | <%= team.name %> </li>
+  <% end %>
+</ul>
