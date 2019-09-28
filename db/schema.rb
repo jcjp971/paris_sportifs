@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_26_062242) do
+ActiveRecord::Schema.define(version: 2019_09_28_183649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,13 @@ ActiveRecord::Schema.define(version: 2019_09_26_062242) do
     t.string "advice"
     t.boolean "double_chance"
     t.string "prediction"
+    t.string "prediction2"
+    t.string "advice2"
+    t.string "prediction3"
+    t.string "advice3"
+    t.string "cote1"
+    t.string "cote2"
+    t.string "cote3"
     t.index ["match_id"], name: "index_pronostics_on_match_id"
     t.index ["prono_site_id"], name: "index_pronostics_on_prono_site_id"
     t.index ["team_id"], name: "index_pronostics_on_team_id"

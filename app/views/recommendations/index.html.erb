@@ -1,0 +1,57 @@
+
+<div class="headers">
+  <span class="date center">
+  date
+  </span>
+  <span class="versus center">
+    versus
+  </span>
+  <span class="prediction prono1 center">
+    ppp
+  </span>
+  <span class="prediction prono2 center">
+    ppp
+  </span>
+  <span class="prediction prono3 center">
+    ppp
+  </span>
+  <span class="cote prono1 center">
+    ccc
+  </span>
+  <span class="cote prono2 center">
+    ccc
+  </span>
+  <span class="cote prono3 center">
+    ccc
+  </span>
+</div>
+
+<% @recommendations.each do |recommendation| %>
+<div>
+
+  <span class="date center">
+  <%= recommendation.match.date %>
+  </span>
+  <span class="versus center">
+    <%= recommendation.match.team1.name %> vs <%= recommendation.match.team2.name %>
+  </span>
+  <span class="prediction prono1 center">
+    <%= recommendation.prediction %>
+  </span>
+  <span class="prediction prono2 center">
+    <%= recommendation.prediction2 %>
+  </span>
+  <span class="prediction prono3 center">
+    <%= recommendation.prediction3 %>
+  </span>
+  <span class="cote prono1 center">
+    <%= recommendation.cote1 %>
+  </span>
+  <span class="cote prono2 center">
+    <%= recommendation.cote2 %>
+  </span>
+  <span class="cote prono3 center">
+    <%= recommendation.cote3 %>
+  </span>
+</div>
+<% end %>
