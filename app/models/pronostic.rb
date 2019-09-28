@@ -1,5 +1,9 @@
 class Pronostic < ApplicationRecord
   belongs_to :prono_site
   belongs_to :match
-  belongs_to :team
+
+  validates :prono_site, presence: true
+  validates :match, presence: true
+  validates :date, presence: true
+  validates :prediction, presence: true
 end

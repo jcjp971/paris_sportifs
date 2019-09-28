@@ -1,9 +1,9 @@
-<h1>Cyber Empire - les matchs</h1>
+<h1>Cyber Empire - les pronostics</h1>
 
-<h4>total : <%= @matches.count %> lignes</h4>
+<h4>total : <%= @pronostics.count %> lignes</h4>
 
 <ul>
-  <% @matches.each do |match| %>
-    <li> id <%= match.id %> | apiID <%= match.foot_api_fixture_id %> | <%= match.date %>  | <%= match.team1.name %>  vs  <%= match.team2.name %> |  <%= match.championship.name %> | <%= match.result %> </li>
+  <% @pronostics.each do |pronostic| %>
+    <li> Le <%= pronostic.match.date %> | <%= pronostic.match.team1.name %> vs <%= pronostic.match.team2.name %>  | <%= pronostic.prono_site.name %> propose <%= pronostic.prediction %> ( <%= pronostic.advice %> ) </li>
   <% end %>
 </ul>
