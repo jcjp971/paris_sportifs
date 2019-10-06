@@ -1,0 +1,48 @@
+body.matches.index {
+  div {
+    display: flex;
+  }
+
+  .date {
+    flex: 0 0 15%;
+  }
+
+  .versus {
+    flex: 0 0 50%;
+  }
+
+  .prediction {
+    flex: 0 0 5%;
+  }
+
+  .cote {
+    flex: 0 0 5%;
+  }
+
+  .prono1 {
+    color: blue;
+  }
+
+  .prono2 {
+    color: red;
+  }
+
+  .prono3 {
+    color: purple;
+  }
+
+  .center {
+    text-align: center;
+  }
+  .headers {
+    font-weight: bolder;
+    background-color: lightgrey;
+
+    span {
+      padding: 5px 0;
+      border-right: 2px solid;
+      border-color: black;
+    }
+  }
+}
+

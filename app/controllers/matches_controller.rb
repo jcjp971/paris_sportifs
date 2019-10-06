@@ -1,6 +1,12 @@
 class MatchesController < ApplicationController
   def index
-    @matches = Match.joins(:championship).where("championships.name = ?", 'Ligue 1').where("date > ?", Date.new(2019, 9, 1)).where("date < ?", Date.new(2019, 9, 30)).order(date: :desc)
+    if params[:date].present?
+      date = Date.commercial(params[:date].to_date.year, params[:date].to_date.cweek)
+      @matches = Match.joins(:championship).where("championships.name = ?", 'Ligue 1').where("date > ?", date).where("date < ?", date + 7).order(date: :asc)
+    else
+      date = Date.commercial(Date.today.year, Date.today.cweek)
+      @matches = Match.joins(:championship).where("championships.name = ?", 'Ligue 1').where("date > ?", date).where("date < ?", date + 7).order(date: :asc)
+    end
   end
 
   def edit

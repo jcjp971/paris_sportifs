@@ -2,8 +2,19 @@
 
 <h4>total : <%= @matches.count %> lignes</h4>
 
+<%= form_with url: matches_path, method: :get, local: true do |f| %>
+  <%= f.date_field :date, value: params[:date] || Date.today %>
+  <%= f.submit "selectionner" %>
+<% end %>
+
+
 <ul>
   <% @matches.each do |match| %>
-    <li> id <%= match.id %> | apiID <%= match.foot_api_fixture_id %> | <%= match.date %>  | <%= match.team1.name %>  vs  <%= match.team2.name %> |  <%= match.championship.name %> | <%= match.result %> </li>
+    <% if match.pronostics.empty? %>
+      <li class="prono2">
+    <% else %>
+      <li>
+    <% end %>
+     id <%= match.id %> | apiID <%= match.foot_api_fixture_id %> | <%= match.date %>  | <%= match.team1.name %>  vs  <%= match.team2.name %> |  <%= match.championship.name %> | <%= match.result %> <%=  %></li>
   <% end %>
 </ul>
