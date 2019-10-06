@@ -2,9 +2,19 @@
 
 <h4>total : <%= @teams.count %> lignes</h4>
 
+<%= form_with url: teams_path, method: :get, local: true do |f| %>
+  <%= f.text_field :team, placeholder: 'team' %>
+  <%= f.submit "selectionner" %>
+<% end %>
+
 
 <ul>
   <% @teams.each do |team| %>
-    <li> id <%= team.id %> | apiID <%= team.foot_api_team_id %> | <%= team.name %> </li>
+    <li>
+      id <%= team.id %> |
+      apiID <%= team.foot_api_team_id %> |
+      <%= team.name %> |
+      <%= link_to "modifier", team_path(team) %>
+    </li>
   <% end %>
 </ul>

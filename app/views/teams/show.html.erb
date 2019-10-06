@@ -1,0 +1,18 @@
+<h1><%= @team.name %></h1>
+
+
+<%= form_with model: @team, local: true do |f| %>
+  <%= label_tag(:name, "name:") %>
+  <%= f.text_field :name %>
+  <br>
+  <%= label_tag(:logo, "logo:") %>
+  <%= f.text_field :logo %>
+  <br>
+  <%= label_tag(:name2, "name2:") %>
+  <%= f.text_field :name2 %>
+  <br>
+  <%= label_tag(:name3, "name3:") %>
+  <%= f.text_field :name3 %>
+  <br>
+  <%= f.submit "enregistrer"%>
+<% end %>
